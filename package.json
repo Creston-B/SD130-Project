@@ -1,0 +1,22 @@
+{
+  "name": "sd130-project",
+  "version": "1.0.0",
+  "description": "A basic sudoku generator and solver based in javascript",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Creston-B/SD130-Project.git"
+  },
+  "author": "Creston Barker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Creston-B/SD130-Project/issues"
+  },
+  "homepage": "https://github.com/Creston-B/SD130-Project#readme",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
+}

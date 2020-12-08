@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Creston-B/SD130-Project#readme",
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "sanitize.css": "^12.0.1"
   }
 }

@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html{
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+  font-family: "open sans", arial, sans-serif;
+}
+
+header {
+  padding: 20px;
+  background-color: #7cd9f2;
+  background: linear-gradient(0, #22222a 0%, #1e5c96 20%);
+  height: 80px;
+}
+
+header h1 {
+  font-weight: 800;
+  color: white;
+  -webkit-text-stroke: black 2px;
+}
+
+main {
+  z-index: -10000;
+  margin: -10px 0;
+  color:#fff;
+  padding: 30px;
+  background-color: #22222a;
+  flex: 1 1 100%;
+}
+
+.puzzle-wrapper {
+  background-color: red;
+}
+
+#puzzle{
+  background-color: blue;
+  border: white 4px;
+  width: 100%;
+}
+#puzzle td:before{
+  padding-top: 100%;
+  display: block;
+  content: "";
+}
+
+#puzzle td {
+  background-color: blueviolet;
+  border: white 2px solid;
+}
+#puzzle span {
+position: relative;
+}
+footer {
+  padding: 20px;
+  color: white;
+  background-color: #57575f;
+  background: linear-gradient(180deg, #22222a 0%, rgb(31, 27, 32) 20%);
+  flex: 0 0 60px;
+}
+
+footer a:link, footer a:hover, footer a:visited, footer a:active {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.license {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  right: 0;
+  background-color: #222;
+  width: 90%;
+  margin: 0 auto;
+  border: #fff solid 2px;
+  border-radius: 10px;
+}
+
+.license p {
+  margin: 10px;
+  font-size: 12px;
+}
+
+.hidden {
+  display: none;
+}

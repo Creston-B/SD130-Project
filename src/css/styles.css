@@ -114,6 +114,7 @@ footer a:link, footer a:hover, footer a:visited, footer a:active {
 }
 
 .license {
+  padding: 10px;
   position: absolute;
   bottom: 70px;
   left: 0;

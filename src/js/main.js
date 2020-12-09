@@ -83,6 +83,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
   console.log(`loaded`)
 
   const puzzleDOM = document.getElementById(`puzzle`);
+  const licenseLabel = document.getElementById(`license-label`);
+  const licenseBox = document.querySelector(`.license`);
+
+  licenseLabel.addEventListener(`mouseover`, e => {
+    licenseBox.classList = `license`
+  })
+
+  licenseLabel.addEventListener(`mouseout`, e => {
+    licenseBox.classList = `license hidden`
+  })
 
   let puzzle = new Puzzle();
   puzzle.buildNewPuzzle();

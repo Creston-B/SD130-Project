@@ -6,6 +6,7 @@ const autoprefixer = require("autoprefixer");
 const terser = require("gulp-terser");
 const htmlmin = require("gulp-htmlmin");
 const del = require("del");
+const ghpages = require("gh-pages")
 
 function cleanTask() {
   return(del("./dist"));
@@ -43,6 +44,10 @@ function scriptsTask() {
     .pipe(dest("./dist/js/"));
 }
 
+function deployTask (){
+  return ghpages.publish(`dist`)
+}
+
 
 exports.clean = cleanTask;
 exports.html = htmlTask;
@@ -51,3 +56,4 @@ exports.styles = stylesTask;
 exports.scripts = scriptsTask;
 
 exports.default = series(cleanTask, htmlTask, parallel(fontsTask, stylesTask, scriptsTask));
+exports.deploy = series(cleanTask, htmlTask, parallel(fontsTask, stylesTask, scriptsTask), deployTask); 

@@ -72,7 +72,7 @@ const generateCell = function (row, col, puzzleArray) {
   }
 
   //lowercase letters a-i = 97-106, used in charcode
-  let cell = `<td class="puzzleCell${fixed}"><input type="number" id="cell-${String.fromCharCode(row + 97)}${col + 1}" min="1" max="9" step="1" oninput="maxlength(e)"></td>`;
+  let cell = `<td class="puzzleCell${fixed}"><input type="number" id="cell-${String.fromCharCode(row + 97)}${col + 1}" min="1" max="9" step="1" oninput="maxlength(this)"></td>`;
   cell.value = value;
   return (cell);
 }

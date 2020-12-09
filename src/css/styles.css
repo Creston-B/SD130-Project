@@ -97,6 +97,8 @@ text-align: center;
 
 #puzzle .fixed input{
   color: black;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 footer {

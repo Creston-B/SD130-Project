@@ -1,26 +1,53 @@
-const {dest} = require("gulp");
+const { src, dest, series, parallel } = require("gulp");
+const postcss = require("gulp-postcss");
+const concat = require("gulp-concat");
+const sourcemaps = require("gulp-sourcemaps");
+const autoprefixer = require("autoprefixer");
+const terser = require("gulp-terser");
+const htmlmin = require("gulp-htmlmin");
+const del = require("del");
+
+function cleanTask() {
+  return(del("./dist"));
+}
 
 function fontsTask() {
-  return("./src/fonts/*")
-  .pipe(dest("./dist/fonts/"))
+  return(src("./src/fonts/*"))
+    .pipe(dest("./dist/fonts/"));
 }
 
 function stylesTask() {
-  return("./src/css/*.css")
-  .pipe(dest("./dist/css/"))
+  return(src("./src/css/*.css"))
+    .pipe(sourcemaps.init())
+    .pipe(postcss([autoprefixer()]))
+    .pipe(sourcemaps.write())
+    .pipe(concat("all.css"))
+    .pipe(dest("./dist/css/"));
 }
 
-function HTMLTask() {
-  return("./src/*.html")
-  .pipe(dest("./dist/"))
+function htmlTask() {
+  return(src("./src/*.html"))
+    .pipe(sourcemaps.init())
+    .pipe(htmlmin())
+    .pipe(sourcemaps.write())
+    .pipe(dest("./dist/"));
+
 }
 
 function scriptsTask() {
-  return("./src/js/*.js")
-  .pipe(dest("./dist/js/"))
+  return(src("./src/js/*.js"))
+    .pipe(sourcemaps.init())
+    .pipe(terser())
+    .pipe(concat("all.js"))
+    .pipe(sourcemaps.write())
+    .pipe(dest("./dist/js/"));
 }
 
-function main() {
 
-}
+exports.clean = cleanTask;
+exports.html = htmlTask;
+exports.fonts = fontsTask;
+exports.styles = stylesTask;
+exports.scripts = scriptsTask;
 
+exports.default = series(cleanTask, htmlTask, parallel(fontsTask, stylesTask, scriptsTask));
